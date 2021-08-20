@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Card from 'react-bootstrap/Card'
+import Button from 'react-bootstrap/Button'
 
 class Posts extends Component {
     constructor(props) {
@@ -28,15 +30,20 @@ class Posts extends Component {
           return <div>Loading...</div>
         }
         return (   
+
             <div> 
-              <ul>
             {items.map(item => (
-              <li key={item.id}>
-                {item.title}
-                {item.body}
-              </li>
+          <Card key={item.id}>
+          <Card.Header as="h5">Featured</Card.Header>
+          <Card.Body>
+            <Card.Title>{item.title}</Card.Title>
+            <Card.Text>
+            {item.body}
+            </Card.Text>
+            <Button variant="primary">Go somewhere</Button>
+          </Card.Body>
+        </Card>
             ))}
-          </ul>
         </div> 
         );
     }
